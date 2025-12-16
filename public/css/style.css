@@ -3219,53 +3219,26 @@ footer {
 
 
 
-@media (max-width: 1600px){
+/* =========================
+   TABLETTE & GRAND ÉCRAN
+   ========================= */
+@media (max-width: 1600px) {
 
-  @media (max-width: 1600px){
-
-  .about-inner{
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
-
-  /* CONTENEUR : forme jamais aplatie */
-  .about .photo{
-    width: min(360px, 70vw);
-    aspect-ratio: 1 / 1;   /* 🔒 verrouille la forme */
-    height: auto;          /* OK ici car le ratio domine */
+  /* CONTENEUR DE L'IMAGE */
+  .about .photo {
+    width: 320px;  /* Ou une largeur max comme 70vw si plus flexible */
+    aspect-ratio: 1 / 1; /* Assure que la forme reste carrée */
     padding: 18px;
+    margin: 0 auto; /* Centre l'image */
+    overflow: hidden; /* Pour garder l'effet de découpe octogonale */
   }
 
-  /* IMAGE : plein, sans déformation */
-  .about .photo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  /* IMAGE DANS LE CONTENEUR */
+  .about .photo img {
+    width: 100%;  /* Remplit toute la largeur */
+    height: 100%;  /* Remplit toute la hauteur */
+    object-fit: cover;  /* Recadre l'image pour qu'elle ne se déforme pas */
+    object-position: center;  /* Garde l'image centrée */
   }
 }
-
-
-  .about-text{
-    max-width: 720px;
-    width: 100%;
-  }
-}
-
-
-
-
-
-
-.about .photo{
-  outline: 2px solid red;
-}
-
-
-
-
-
-
-
-
 
