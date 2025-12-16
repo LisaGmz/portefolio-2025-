@@ -3322,30 +3322,3 @@ footer {
 
 
 
-/* =========================================
-   FIX TABLET - VIDEO CONTROLS CLICKABLE
-========================================= */
-
-#personal-projects .personal-project-card{
-  position: relative;
-}
-
-
-#personal-projects .personal-project-card::before,
-#personal-projects .personal-project-card::after{
-  pointer-events: none !important;
-}
-
-
-#personal-projects .project-media,
-#personal-projects .video-frame{
-  position: relative;
-  z-index: 2;
-}
-
-
-#personal-projects video{
-  position: relative;
-  z-index: 3;
-  pointer-events: auto;
-}
