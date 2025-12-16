@@ -3279,3 +3279,39 @@ footer {
 
 
 
+
+
+
+/* =========================================
+   PROJETS PERSO — 1200 → 1599
+   Vidéo au-dessus, texte en dessous
+========================================= */
+
+@media (min-width: 1200px) and (max-width: 1599px){
+
+  #personal-projects .personal-project-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  #personal-projects .project-media,
+  #personal-projects .video-frame{
+    width: 100%;
+    max-width: 900px;
+  }
+
+  #personal-projects .video-frame video{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #personal-projects .project-content{
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
