@@ -3205,11 +3205,68 @@ footer {
 
 
 
-/* DEBUG — si tu vois un cadre rouge autour de la zone À propos, ton fichier est bien chargé */
-#about .about-inner{ outline: 4px solid red !important; }
 
 
+/* ===== ABOUT — TARGET LOOK (900 → 1599) ===== */
+@media (min-width: 900px) and (max-width: 1599px){
 
+  .about-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 48px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    text-align: center;
+  }
+
+  /* Cadre photo centré et stable */
+  .about .photo{
+    width: 320px !important;     /* comme sur ta capture */
+    height: 320px !important;
+    margin: 0 auto !important;
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  /* Image jamais déformée */
+  .about .photo img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Texte bien centré dans une colonne */
+  .about-text{
+    width: 100% !important;
+    max-width: 850px !important;
+    margin: 0 auto !important;
+    text-align: justify;
+  }
+}
+
+/* 1600+ : photo à gauche / texte à droite */
+@media (min-width: 1600px){
+  .about-inner{
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 64px !important;
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+    text-align: left;
+  }
+
+  .about .photo{
+    width: 420px !important;
+    height: 420px !important;
+  }
+}
 
 
 
