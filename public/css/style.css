@@ -3222,6 +3222,35 @@ footer {
 
 
 
+/* ===============================
+   ABOUT — TABLETTE & LAPTOPS
+   Image au-dessus / texte en dessous
+   =============================== */
+@media (max-width: 1599px){
+
+  .about-inner{
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .about .photo{
+    width: 360px;
+    height: 360px;
+  }
+
+  .about .photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text{
+    max-width: 900px;
+    width: 100%;
+    text-align: justify;
+  }
+}
 
 
 
