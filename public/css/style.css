@@ -3192,7 +3192,7 @@ footer {
 
 
 
-/* TABLETTE — MAIRIE */
+/* TABLETTE - MAIRIE */
 
 @media (min-width: 769px) and (max-width: 1204px) {
   .flyer-scope .flyer-layout{
@@ -3207,8 +3207,8 @@ footer {
 
 
 
-/* ===== ABOUT — TARGET LOOK (900 → 1599) ===== */
-@media (min-width: 900px) and (max-width: 1599px){
+/* ===== ABOUT - (900 - 1599) ===== */
+@media (min-width: 900px) and (max-width: 1599px) {
 
   .about-inner{
     display: flex !important;
@@ -3221,9 +3221,9 @@ footer {
     text-align: center;
   }
 
-  /* Cadre photo centré et stable */
+ 
   .about .photo{
-    width: 320px !important;     /* comme sur ta capture */
+    width: 320px !important;   
     height: 320px !important;
     margin: 0 auto !important;
     flex: 0 0 auto !important;
@@ -3233,7 +3233,7 @@ footer {
     overflow: hidden !important;
   }
 
-  /* Image jamais déformée */
+ 
   .about .photo img{
     width: 100% !important;
     height: 100% !important;
@@ -3242,7 +3242,6 @@ footer {
     display: block !important;
   }
 
-  /* Texte bien centré dans une colonne */
   .about-text{
     width: 100% !important;
     max-width: 850px !important;
@@ -3251,7 +3250,7 @@ footer {
   }
 }
 
-/* 1600+ : photo à gauche / texte à droite */
+
 @media (min-width: 1600px){
   .about-inner{
     flex-direction: row !important;
@@ -3283,8 +3282,7 @@ footer {
 
 
 /* =========================================
-   PROJETS PERSO — 1200 → 1599
-   Vidéo au-dessus, texte en dessous
+   PROJETS PERSO - 1200 - 1599
 ========================================= */
 
 @media (min-width: 1200px) and (max-width: 1599px){
@@ -3314,4 +3312,40 @@ footer {
     margin: 0 auto;
     text-align: left;
   }
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   FIX TABLET - VIDEO CONTROLS CLICKABLE
+========================================= */
+
+#personal-projects .personal-project-card{
+  position: relative;
+}
+
+
+#personal-projects .personal-project-card::before,
+#personal-projects .personal-project-card::after{
+  pointer-events: none !important;
+}
+
+
+#personal-projects .project-media,
+#personal-projects .video-frame{
+  position: relative;
+  z-index: 2;
+}
+
+
+#personal-projects video{
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
 }
