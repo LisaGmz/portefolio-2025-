@@ -602,6 +602,24 @@ if (sideLinks.length) {
 
 
 
+function updatePersonalProjectsVolume() {
+  const videos = document.querySelectorAll('#personal-projects video');
+  const width = window.innerWidth;
+
+  videos.forEach(video => {
+    if (width >= 900 && width <= 1599) {
+      video.volume = 0.8; // volume renforcé
+    } else {
+      video.volume = 0.4; // volume normal
+    }
+  });
+}
+
+// Au chargement
+window.addEventListener('load', updatePersonalProjectsVolume);
+
+// Au redimensionnement
+window.addEventListener('resize', updatePersonalProjectsVolume);
 
 
 
