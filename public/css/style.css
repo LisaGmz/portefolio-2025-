@@ -3211,97 +3211,48 @@ footer {
 
 
 
+/* =========================================================
+   ABOUT — écrans intermédiaires (tablettes + petits laptops)
+   Image au-dessus / texte en dessous
+========================================================= */
+@media (max-width: 1500px) {
 
-
-/* =========================
-   TABLETTE : image au-dessus / texte dessous
-   ========================= */
-@media (max-width: 1024px) {
-
-  .about-container {
-    display: flex;
-    flex-direction: column; /* empile */
+  .about-inner {
+    flex-direction: column;
     align-items: center;
     gap: 48px;
   }
 
   .about .photo {
-    width: 260px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .about .photo img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .about-text {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: left;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1024px) {
-  .about-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 40px;
-  }
-
-  .about-photo {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto;
-  }
-
-  .about-text {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-}
-
-
-
-
-
-
-
-
-
-/* =========================================
-   ABOUT — TABLETTE & MOBILE
-   Image au-dessus, texte en dessous
-========================================= */
-@media (max-width: 1100px) {
-
-  .about-inner {
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .about .photo {
     width: 340px;
     height: 340px;
+    margin: 0 auto;
   }
 
   .about-text {
-    max-width: 90%;
+    max-width: 820px;
+    margin: 0 auto;
     text-align: justify;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
