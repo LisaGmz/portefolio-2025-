@@ -3080,47 +3080,6 @@ footer {
 
 
 
-/* TABLETTE UNIQUEMENT */
-
-@media (max-width: 1600px) {
-
-
-.about-inner{
-  display: flex;
-  flex-direction: row;   /* desktop = image à gauche, texte à droite */
-  align-items: center;
-  gap: 64px;
-}
-
-
-  .about .photo{
-    width: 320px !important;
-    height: 320px !important;
-    aspect-ratio: 1 / 1 !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-  }
-
-  
-  .about .photo img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    display: block !important;
-  }
-
- 
-  .about-text{
-    max-width: 720px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    text-align: justify;
-  }
-}
 
 
 
@@ -3219,71 +3178,7 @@ footer {
 
 
 
-/* =========================
-   TABLETTE — MAINTENIR IMAGE EN HAUT, TEXTE EN BAS
-   ========================= */
-@media (min-width: 1025px) and (max-width: 1200px) {
-  .about-inner {
-    display: flex;
-    flex-direction: column;  /* Empile l'image au-dessus du texte */
-    align-items: center;  /* Centre le contenu horizontalement */
-    gap: 32px;  /* Espace entre l'image et le texte */
-  }
 
-  .about .photo {
-    width: 100%;  /* Utilise toute la largeur */
-    max-width: 400px;  /* Taille maximum de l'image */
-    aspect-ratio: 1 / 1;  /* Forme carrée pour l'image */
-    margin: 0 auto;  /* Centre l'image */
-    overflow: hidden;  /* Pour la découpe octogonale */
-  }
-
-  .about .photo img {
-    width: 100%;  /* Image prend toute la largeur de son parent */
-    height: 100%;  /* Image prend toute la hauteur de son parent */
-    object-fit: cover;  /* Recadre l'image pour qu'elle s'adapte sans déformation */
-    object-position: center;  /* Centre l'image dans l'espace */
-  }
-
-  .about-text {
-    max-width: 720px;  /* Limite la largeur du texte */
-    width: 100%;  /* Assure que le texte utilise toute la largeur */
-    text-align: justify;  /* Justifie le texte pour une lecture agréable */
-  }
-}
-
-/* =========================
-   TABLETTE (1024px à 1200px) — L'image et le texte bien centrés
-   ========================= */
-@media (min-width: 1200px) and (max-width: 1600px) {
-  .about-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .about .photo {
-    width: 100%; /* Utilise toute la largeur de l'écran */
-    max-width: 400px; /* Taille maximale de l'image */
-    aspect-ratio: 1 / 1; /* Maintient l'image carrée */
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .about .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image se redimensionne sans déformation */
-    object-position: center;
-  }
-
-  .about-text {
-    max-width: 720px;
-    width: 100%;
-    text-align: justify;
-  }
-}
 
 /* =========================
    GRAND ÉCRAN (1600px et plus)
@@ -3317,3 +3212,58 @@ footer {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   ABOUT — TABLETTE & PETITS LAPTOPS
+   Photo au-dessus / texte en dessous
+   =============================== */
+@media (max-width: 1599px){
+
+  .about-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .about .photo{
+    width: 360px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .about .photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-text{
+    max-width: 900px;
+    width: 100%;
+    text-align: justify;
+  }
+}
