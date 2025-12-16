@@ -3202,3 +3202,43 @@ footer {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   TABLETTE : image au-dessus / texte dessous
+   ========================= */
+@media (max-width: 1024px) {
+
+  .about-container {
+    display: flex;
+    flex-direction: column; /* empile */
+    align-items: center;
+    gap: 48px;
+  }
+
+  .about .photo {
+    width: 260px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .about .photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .about-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
