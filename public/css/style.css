@@ -3205,6 +3205,29 @@ footer {
 }
 
 
+@media (min-width: 1201px) and (max-width: 1599px){
+
+  
+  .flyer-scope .flyer-layout{
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+ 
+  .flyer-scope .flyer-card{
+    max-width: 520px;      
+    width: 100%;
+    justify-self: center;  
+  }
+
+  /* Et donc l’image ne dépasse jamais */
+  .flyer-scope .flyer-img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
 
 
 
