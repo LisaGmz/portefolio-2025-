@@ -3194,7 +3194,7 @@ footer {
 
 /* TABLETTE - MAIRIE */
 
-@media (min-width: 769px) and (max-width: 1599px) {
+@media (min-width: 769px) and (max-width: 1204px) {
   .flyer-scope .flyer-layout{
     row-gap: 28px;
   }
@@ -3320,5 +3320,15 @@ footer {
 
 
 
+
+
+/* ===== MAIRIE — ÉVÉNEMENT (900–1599) ===== */
+@media (min-width: 900px) and (max-width: 1599px){
+  .flyer-scope .flyer-layout{
+    display: flex;
+    flex-direction: column;
+    row-gap: 28px;
+  }
+}
 
 
