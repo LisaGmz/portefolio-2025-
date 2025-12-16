@@ -3205,6 +3205,8 @@ footer {
 
 
 
+/* DEBUG — si tu vois un cadre rouge autour de la zone À propos, ton fichier est bien chargé */
+#about .about-inner{ outline: 4px solid red !important; }
 
 
 
