@@ -3085,13 +3085,12 @@ footer {
 @media (max-width: 1600px) {
 
 
-  /* Layout vertical */
-  .about-inner{
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 32px !important;
-  }
+.about-inner{
+  display: flex;
+  flex-direction: row;   /* desktop = image à gauche, texte à droite */
+  align-items: center;
+  gap: 64px;
+}
 
 
   .about .photo{
