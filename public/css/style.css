@@ -3328,15 +3328,13 @@ footer {
 
 
 
-/* =========================
-   VIDEO - bouton Play
-========================= */
+/* ======================================
+   PLAY BUTTON
+   ====================================== */
 
-.video-frame {
-  position: relative;
-}
 
-.video-play-btn {
+.video-frame .video-play-btn,
+.video-container .video-play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3347,31 +3345,29 @@ footer {
   background: rgba(0, 0, 0, 0.6);
   border: none;
   cursor: pointer;
-  backdrop-filter: blur(6px);
+  z-index: 10;
+
+ 
+  margin: 0 !important;
+  padding: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 2;
 }
 
-.video-play-btn::before {
+
+.video-frame .video-play-btn::before,
+.video-container .video-play-btn::before {
   content: "";
   margin-left: 4px;
-  width: 0;
-  height: 0;
-  border-left: 18px solid white;
+  border-left: 18px solid #fff;
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
 }
 
 
-.video-frame:hover .video-play-btn {
-  transform: translate(-50%, -50%) scale(1.08);
-}
-
-
-.video-frame.playing .video-play-btn {
+.video-frame.playing .video-play-btn,
+.video-container.playing .video-play-btn {
   opacity: 0;
   pointer-events: none;
 }
