@@ -661,23 +661,7 @@ window.addEventListener("pointerdown", () => {
 
 
 
-document.querySelectorAll(".video-frame").forEach(frame => {
-  const video = frame.querySelector("video");
-  const playBtn = frame.querySelector(".video-play-btn");
 
-  playBtn.addEventListener("click", () => {
-    video.play();
-    frame.classList.add("playing");
-  });
-
-  video.addEventListener("pause", () => {
-    frame.classList.remove("playing");
-  });
-
-  video.addEventListener("ended", () => {
-    frame.classList.remove("playing");
-  });
-});
 
 
 
