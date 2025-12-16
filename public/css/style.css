@@ -3220,25 +3220,100 @@ footer {
 
 
 /* =========================
-   TABLETTE & GRAND ÉCRAN
+   TABLETTE — MAINTENIR IMAGE EN HAUT, TEXTE EN BAS
    ========================= */
-@media (max-width: 1600px) {
-
-  /* CONTENEUR DE L'IMAGE */
-  .about .photo {
-    width: 320px;  /* Ou une largeur max comme 70vw si plus flexible */
-    aspect-ratio: 1 / 1; /* Assure que la forme reste carrée */
-    padding: 18px;
-    margin: 0 auto; /* Centre l'image */
-    overflow: hidden; /* Pour garder l'effet de découpe octogonale */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .about-inner {
+    display: flex;
+    flex-direction: column;  /* Empile l'image au-dessus du texte */
+    align-items: center;  /* Centre le contenu horizontalement */
+    gap: 32px;  /* Espace entre l'image et le texte */
   }
 
-  /* IMAGE DANS LE CONTENEUR */
+  .about .photo {
+    width: 100%;  /* Utilise toute la largeur */
+    max-width: 400px;  /* Taille maximum de l'image */
+    aspect-ratio: 1 / 1;  /* Forme carrée pour l'image */
+    margin: 0 auto;  /* Centre l'image */
+    overflow: hidden;  /* Pour la découpe octogonale */
+  }
+
   .about .photo img {
-    width: 100%;  /* Remplit toute la largeur */
-    height: 100%;  /* Remplit toute la hauteur */
-    object-fit: cover;  /* Recadre l'image pour qu'elle ne se déforme pas */
-    object-position: center;  /* Garde l'image centrée */
+    width: 100%;  /* Image prend toute la largeur de son parent */
+    height: 100%;  /* Image prend toute la hauteur de son parent */
+    object-fit: cover;  /* Recadre l'image pour qu'elle s'adapte sans déformation */
+    object-position: center;  /* Centre l'image dans l'espace */
+  }
+
+  .about-text {
+    max-width: 720px;  /* Limite la largeur du texte */
+    width: 100%;  /* Assure que le texte utilise toute la largeur */
+    text-align: justify;  /* Justifie le texte pour une lecture agréable */
   }
 }
+
+/* =========================
+   TABLETTE (1024px à 1200px) — L'image et le texte bien centrés
+   ========================= */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .about-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .about .photo {
+    width: 100%; /* Utilise toute la largeur de l'écran */
+    max-width: 400px; /* Taille maximale de l'image */
+    aspect-ratio: 1 / 1; /* Maintient l'image carrée */
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .about .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image se redimensionne sans déformation */
+    object-position: center;
+  }
+
+  .about-text {
+    max-width: 720px;
+    width: 100%;
+    text-align: justify;
+  }
+}
+
+/* =========================
+   GRAND ÉCRAN (1600px et plus)
+   ========================= */
+@media (min-width: 1600px) {
+  .about-inner {
+    display: flex;
+    flex-direction: row; /* Disposition sur une seule ligne si espace disponible */
+    gap: 32px;  /* Espace entre image et texte */
+  }
+
+  .about .photo {
+    width: 50%;  /* Image occupe la moitié de l'espace */
+    aspect-ratio: 1 / 1;  /* Maintien l'aspect carré */
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .about .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Recadre l'image pour la garder centrée et remplissant son espace */
+    object-position: center;
+  }
+
+  .about-text {
+    max-width: 720px;
+    width: 100%;
+    text-align: justify;
+  }
+}
+
 
