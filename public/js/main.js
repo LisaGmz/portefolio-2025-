@@ -368,26 +368,22 @@ document.querySelectorAll('.mairie-collage .collage-item').forEach(card => {
     }
 
     async function tryPlay(){
-      try{
-        await ensureMetadata(video);
-        if (isEnded(video)) {
-          await resetToStart(video);         
-        }
-        video.muted = true;                   
-        video.removeAttribute('controls');    
-        await video.play();
-        hideBtn();
-      }catch(err){
-        video.setAttribute('controls','controls'); 
-        showBtn();
-      }
+  try{
+    await ensureMetadata(video);
+    if (isEnded(video)) {
+      await resetToStart(video);
     }
+    video.play();
+    hideBtn();
+  }catch(err){
+    showBtn();
+  }
+}
+
 
     // interactions
     btn.addEventListener('click', tryPlay);
-    video.addEventListener('click', () => {
-      if (video.paused) tryPlay();
-      else { video.pause(); showBtn(); }
+    
     });
 
    
