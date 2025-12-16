@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lisa Gimenez</title>
+
+<link rel="stylesheet" href="/css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+ <!-- ===== MOBILE ACCESS ===== -->
+<div id="mobile-lock">
+  <div class="mobile-lock-content">
+
+
+    <div class="mobile-stack" aria-hidden="true">
+      <span class="b b1"></span>
+      <span class="b b2"></span>
+      <span class="b b3"></span>
+      <span class="b b4"></span>
+    </div>
+
+    <h1>Site non accessible sur petit écran! &#x263A; </h1>
+    
+    
+  </div>
+</div>
+
+
+
+<!-- ===== <nav class="nav-links" id="nav-links">
+ <a href="#about">À propos</a>
+  <a href="#project-1">Projet 1</a>
+  <a href="#project-2">Projet 2</a>
+    <a href="#personal-projects">Autres projets</a>
+</nav>
+ ===== -->
+
+<header class="navbar">
+ <a href="index.html" class="logo">Lisa Gimenez</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ===== SIDE NAV ===== -->
+<aside class="side-nav-fixed">
+  <nav class="side-nav-track">
+    <a href="#about"  class="side-nav-item side-nav-item--ghost side-nav-link is-active">
+      <span class="side-nav-icon side-nav-icon--diamond">◆</span>
+      <span class="side-nav-label">À PROPOS</span>
+    </a>
+
+    <a href="#project-1" class="side-nav-item side-nav-link">
+      <span class="side-nav-icon">■</span>
+      <span class="side-nav-label">PROJET 1</span>
+    </a>
+
+    <a href="#project-2" class="side-nav-item side-nav-link">
+      <span class="side-nav-icon">▲</span>
+      <span class="side-nav-label">PROJET 2</span>
+    </a>
+
+    <a href="#personal-projects" class="side-nav-item side-nav-item--primary side-nav-link">
+      <span class="side-nav-icon">★</span>
+      <span class="side-nav-label">AUTRES PROJETS</span>
+    </a>
+
+  </nav>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</header>
+
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-img-container">
+      <img src="assets/images/mon-image.jpg" class="color-layer" alt="Bannière">
+      <div class="bw-layer"></div>
+    </div>
+    <div class="container">
+      <h2>Portfolio</h2>
+      <p>Découvrez mes projets, mes compétences et mon univers créatif.</p>
+      <a href="#projects" class="btn">Voir mes projets</a>
+    </div>
+  </section>
+
+
+
+
+
+<!-- ===== À PROPOS / COMPÉTENCES / FORMATIONS ===== -->
+<section id="about" class="about page-section">
+  <div class="container">
+  <div class="section-icon">◆</div>
+    <!-- Menu centré -->
+      
+    <ul class="about-menu" aria-label="Catégories">
+       
+      <li class="active" style="--i:0" data-target="about-content">À propos</li>
+      <li style="--i:1" data-target="skills-content">Compétences</li>
+      <li style="--i:2" data-target="education-content">Formations</li>
+       
+    </ul>
+
+    <!-- Panel 1 : À propos -->
+    <div id="about-content" class="about-panel active">
+      <div class="about-inner">
+        <div class="photo about-photo fade-trigger">
+          <img src="assets/images/moi2.jpg" alt="Photo de moi">
+        </div>
+
+        <div class="about-text fade-trigger">
+          <p>
+            Issue d’un <span class="highlight">parcours musical et artistique</span> au Conservatoire de Nice, commencé très jeune, j’ai développé une <span class="highlight">rigueur</span>, une <span class="highlight">autonomie</span> et une <span class="highlight">discipline</span> qui demeurent au cœur de ma manière de travailler.
+          </p>
+          <p>
+            La création d’une <span class="highlight">association dédiée à l’audiovisuel</span> m’a ensuite offert l’opportunité de mettre en pratique les concepts de communication et de marketing, en passant de la théorie à l’action : <span class="highlight">création de contenus visuels</span>, <span class="highlight">organisation d’événements</span>, <span class="highlight">collecte et analyse de données</span>, <span class="highlight">gestion des réseaux sociaux et des actualités</span>. J’ai également <span class="highlight">développé des partenariats</span>, <span class="highlight">rédigé dossiers et cahiers des charges</span>, et <span class="highlight">assuré le suivi budgétaire</span>. Cette expérience, à la croisée de la <span class="highlight">communication</span> et du <span class="highlight">marketing</span>, a confirmé mon orientation professionnelle.
+          </p>
+          <p>
+            Pour approfondir cette voie, j’ai poursuivi un <span class="highlight">master en innovation, création et communication digitale</span>, consolidant un profil <span class="highlight">créatif</span> et <span class="highlight">technique</span>, guidé par la recherche constante d’outils et de méthodes pour <span class="highlight">renforcer l’impact des stratégies de communication</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 : Compétences -->
+    <div id="skills-content" class="about-panel">
+      <section class="skills-section">
+        <div class="skills-grid">
+
+          <!-- Web & Digital -->
+          <div class="skill-card">
+            <h3 class="skill-title"> Web & Digital</h3>
+            <div class="skill-content">
+              <ul class="skill-list">
+                <li><strong>Langages :</strong> HTML, CSS, JavaScript</li>
+                <li><strong>CMS :</strong> WordPress, Prestashop</li>
+                <li><strong>SEO/SEA :</strong> Stratégie & optimisation</li>
+               <li><strong>Intégration multimédia :</strong> images, vidéos & éléments interactifs</li>
+
+              </ul>
+            </div>
+          </div>
+
+          <!-- Marketing & CRM -->
+          <div class="skill-card">
+            <h3 class="skill-title"> Marketing & CRM</h3>
+            <div class="skill-content">
+              <ul class="skill-list">
+                <li><strong>E-mailing :</strong> Mailchimp, Sendinblue, HubSpot</li>
+             
+                <li><strong>CRM :</strong> Salesforce, HubSpot</li>
+                <li><strong>Stratégies :</strong> Segmentation & fidélisation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Graphisme & Design -->
+          <div class="skill-card">
+            <h3 class="skill-title"> Graphisme & Design</h3>
+            <div class="skill-content">
+              <ul class="skill-list">
+                <li><strong>Outils :</strong> Photoshop, Illustrator, InDesign, Premiere Pro</li>
+                <li><strong>Prototypage :</strong> Canva, Figma</li>
+                <li><strong>UX/UI :</strong> Conception d’expériences utilisateurs</li>
+                <li><strong>Identité visuelle :</strong> Branding & charte graphique</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Analyse & Performance -->
+          <div class="skill-card">
+            <h3 class="skill-title"> Analyse & Performance</h3>
+            <div class="skill-content">
+              <ul class="skill-list">
+                <li><strong>Outils :</strong> Google Analytics (GA4), Looker Studio</li>
+                <li><strong>KPI & ROI :</strong> Suivi et optimisation</li>
+                <li><strong>A/B testing :</strong> Expérimentation et reporting</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Communication & Événementiel -->
+          <div class="skill-card">
+            <h3 class="skill-title"> Communication & Événementiel</h3>
+            <div class="skill-content">
+              <ul class="skill-list">
+                <li><strong>Stratégie :</strong> Gestion de réseaux sociaux, planning éditorial</li>
+                <li><strong>Contenus :</strong> Rédaction & création multimédia</li>
+                <li><strong>Événementiel :</strong> Organisation d’événements & partenariats</li>
+                <li><strong>Presse :</strong> Relations presse & gestion de la visibilité</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Panel 3 : Formations -->
+    <div id="education-content" class="about-panel">
+      <section class="education-section">
+        <h2 class="section-heading">Formations</h2>
+<br>
+        <div class="education-grid">
+          <div class="education-card">
+            <h3>🎓 Master en Innovation, Création & Communication Digitale</h3>
+            <p class="school">Université Côte d’Azur – Nice</p>
+            <p class="date">2015 – 2020</p>
+            <br>
+            <p class="desc">
+              Spécialisation en stratégie digitale, conception d’expériences utilisateurs,
+              gestion de projets innovants et création de contenus multimédias.
+            </p>
+          </div>
+          <br>
+<div class="education-card">
+  <h3>📚 Formations complémentaires</h3>
+  
+
+  <p class="date">2020 – 2024</p>
+<br>
+  <p class="desc">
+    <strong>Photoshop – Retouch Tata School<br><br>
+
+    <strong>Techniques de vente & relation client<br><br>
+
+    <strong>QGIS : Système d'information géographique
+  </p>
+</div>
+
+          
+
+          
+        </div>
+      </section>
+    </div>
+
+  </div>
+</section>
+
+
+ 
+
+
+
+
+  <!-- ===== PROJETS (1 & 2) ===== -->
+  <section id="projects">
+
+    <!-- === PROJET 1 : InLei / Light Lashes === -->
+    <div id="project-1"></div>
+
+    <div class="container projects-shell">
+       
+      <header class="section-heading">
+        <p class="eyebrow">Projet</p>
+        <h3>Inlei & Light lashes </h3>
+           <div class="section-icon">■</div>
+      </header>
+
+      <ul class="projects-menu" aria-label="Catégories">
+        <li class="active">.</li>
+        <li>.</li>
+        <li>.</li>
+        <li>.</li>
+        <li>.</li>
+      </ul>
+
+      <div class="accordion-gallery" role="tablist" aria-label="Projets (accordéon)">
+        <article class="panel active" tabindex="0" aria-expanded="true"
+                 data-title="Projet 1" data-desc="Description exemple du projet 1.">
+          <img src="/assets/images/projet1.png" alt="Projet 1">
+          <div class="panel-info" aria-hidden="false">
+            <h4>Créations graphiques</h4>
+            <p>Inlei</p>
+            <a href="inlei.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 2" data-desc="Description exemple du projet 2.">
+          <img src="/assets/images/projet2.png" alt="Projet 2">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Créations graphiques</h4>
+            <p>Light Lashes</p>
+            <a href="inlei.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 3" data-desc="Description exemple du projet 3.">
+          <img src="/assets/images/projet3.png" alt="Projet 3">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Social Media</h4>
+            <p>Inlei &amp; Light lashes</p>
+            <a href="inlei.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 4" data-desc="Description exemple du projet 4.">
+          <img src="/assets/images/projet4.png" alt="Projet 4">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Site Internet</h4>
+            <p>Inlei &amp; Light lashes</p>
+            <a href="inlei.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Ligne animée entre les deux projets -->
+    <div class="project-divider-line"></div>
+
+    <!-- === PROJET 2 : Mairie === -->
+    <div id="project-2"></div>
+
+    <div class="container projects-shell">
+      <header class="section-heading">
+        <p class="eyebrow">Projet</p>
+        <h3>Mairie de Saint-Jeannet</h3>
+        <div class="section-icon">▲</div>
+      </header>
+
+      <ul class="projects-menu" aria-label="Catégories">
+        <li class="active">.</li>
+        <li>.</li>
+        <li>.</li>
+        <li>.</li>
+        <li>.</li>
+      </ul>
+
+      <div class="accordion-gallery" role="tablist" aria-label="Projets (accordéon)">
+        <article class="panel active" tabindex="0" aria-expanded="true"
+                 data-title="Projet 1" data-desc="Description exemple du projet 1.">
+          <img src="/assets/images/mairie1.jpg" alt="Projet 1">
+          <div class="panel-info" aria-hidden="false">
+            <h4>Quelques réalisations</h4>
+            <p>Culture - Patrimoine</p>
+            <a href="mairie.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 2" data-desc="Description exemple du projet 2.">
+          <img src="/assets/images/mairie2.jpg" alt="Projet 2">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Bulletin Municipal</h4>
+            <p>Saint-Jeannet Infos</p>
+         <a href="mairie.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 3" data-desc="Description exemple du projet 3.">
+          <img src="/assets/images/mairie3.jpg" alt="Projet 3">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Événements</h4>
+            <p>Arts &amp; Sports</p>
+            <a href="mairie.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+
+        <article class="panel" tabindex="0" aria-expanded="false"
+                 data-title="Projet 4" data-desc="Description exemple du projet 4.">
+          <img src="/assets/images/mairie4.jpg" alt="Projet 4">
+          <div class="panel-info" aria-hidden="true">
+            <h4>Application mobile &amp; Panneau numérique</h4>
+            <p>St-Jeannet</p>
+            <a href="mairie.html" class="btn-more">Découvrir le projet</a>
+          </div>
+        </article>
+      </div>
+    </div>
+    <!-- Animations -->
+<div class="project-divider-line"></div>
+
+  </section>
+
+
+
+
+
+
+
+
+ <!-- ===== PROJETS PERSO ===== -->
+  <section id="personal-projects" class="personal-projects">
+   
+    <div class="container">
+      <header class="section-heading">
+        <p class="eyebrow">Projets perso</p>
+        <h3>AUTRES PROJETS</h3>
+        <div class="section-icon">★</div>
+      </header>
+
+      <div class="personal-projects-grid">
+
+        <!-- Projet perso 1 -->
+        <article class="personal-project-card">
+          <div class="project-media">
+            <div class="video-frame">
+              <!-- Version avec fichier vidéo -->
+          <video 
+  class="auto-hide-controls"
+  src="assets/images/CEMENELUM 2.0_1.mp4"
+  preload="metadata"
+  poster="assets/images/perso1.png"
+  controlslist="nodownload noplaybackrate noremoteplayback">
+</video>
+
+         
+            </div>
+          </div>
+
+                  <div class="project-content">
+          <h4>APPLICATION IMMERSIVE EN RÉALITÉ VIRTUELLE</h4>
+
+          <p class="project-meta">
+            Projet de fin d’études en Master, poursuivi en stage au centre de création numérique
+            <span class="project-meta-highlight">Le Hublot</span>.
+          </p>
+
+          <p>
+            Ce projet présente le développement d’une application en environnement immersif (VR)
+            conçue pour explorer de nouvelles manières de transmettre l’information grâce à une
+            expérience interactive centrée sur l’utilisateur.
+          </p>
+
+          <p>
+            J’ai travaillé à la création d’un <strong>environnement immersif</strong> avec 
+<strong>Unity</strong> et <strong>Blender</strong>, associé à un 
+<strong>enregistrement 360°</strong> réalisé avec une <strong>GoPro</strong>. 
+Les <strong>interactions</strong> ont ensuite été développées en <strong>C#</strong> pour une utilisation optimisée avec les 
+<strong>casques Vive Pro</strong>.
+
+          </p>
+
+          <p>
+            L’objectif était d’innover dans la manière de présenter l’information : proposer une
+            communication plus <strong>immersive</strong>, <strong>interactive</strong> et
+            <strong>exploratoire</strong>, en permettant à l’utilisateur de découvrir de nouveaux
+            moyens d’acquérir des contenus et des connaissances.
+          </p>
+
+          <ul class="project-tags">
+            <li>Réalité virtuelle (VR)</li>
+            <li>Unity &amp; C#</li>
+            <li>Blender (3D)</li>
+            <li>Captation 360°</li>
+           
+          </ul>
+        </div>
+      </article>
+
+        <!-- Projet perso 2 -->
+<article class="personal-project-card reverse">
+  <div class="project-content">
+    <h4>KATARACT COLLECTIF </h4>
+
+    <p>
+      Ce projet retrace mon engagement au sein de 
+      <strong>Kataract Collectif</strong>, une association née de la rencontre 
+      entre un artiste musicien passionné par la musique analogique et ma
+      passion pour l’art digital.
+    </p>
+
+    <p>
+     Je réalisais des créations artistiques en <strong>mapping vidéo</strong> et en 
+<strong>régie lumière</strong>, tout en assurant également la 
+<strong>communication</strong>, la <strong>création de contenus visuels</strong> 
+et <strong>l’organisation des événements</strong>.
+
+
+      
+    </p>
+
+    <p>
+      Nous avons conçu une <strong>vidéo</strong> utilisée comme 
+      <strong>support de présentation</strong> pour promouvoir 
+      <strong>nos services et projets</strong> lors de nos dates avec l’association à 
+      <strong>Nice</strong>, <strong>Lyon</strong> et <strong>Bordeaux</strong>.
+
+    </p>
+
+    <p>
+      Cette expérience a renforcé mon rapport à la création et à la technique, 
+      et a nourri ma passion de l’art digital.
+    </p>
+
+    <ul class="project-tags">
+      <li>Resolume Arena</li>
+      <li>MadMapper</li>
+      <li>MA Lighting</li>
+      <li>Blender - After Effect ...</li>
+     
+    </ul>
+  </div>
+
+  <div class="project-media">
+    <div class="video-frame">
+      
+    <video 
+  class="auto-hide-controls"
+  src="assets/images/PROJET LOCAL.mp4"
+  preload="metadata"
+  poster="assets/images/perso2.png"
+  controlslist="nodownload noplaybackrate noremoteplayback">
+</video>
+    </div>
+  </div>
+</article>
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Portfolio. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="/js/main.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
