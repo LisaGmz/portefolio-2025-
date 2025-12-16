@@ -3219,6 +3219,24 @@ footer {
 
 
 
+/* TABLETTE LARGE + TABLETTE */
+@media (max-width: 1600px){
+  .about-inner{
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about .photo{
+    width: 320px;
+    height: 320px;
+  }
+
+  .about-text{
+    max-width: 720px;
+    width: 100%;
+  }
+}
 
 
 
