@@ -3045,7 +3045,7 @@ footer {
 }
 
 
-@media (max-width: 1024px){
+@media (max-width: 900px){
   #mobile-lock .b1{ animation: stackLoop 2.4s ease-in-out 0s infinite; }
 #mobile-lock .b2{ animation: stackLoop 2.4s ease-in-out 0.12s infinite; }
 #mobile-lock .b3{ animation: stackLoop 2.4s ease-in-out 0.24s infinite; }
