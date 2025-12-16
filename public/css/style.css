@@ -3257,6 +3257,9 @@ footer {
 
 
 
+.about .photo{
+  outline: 2px solid red;
+}
 
 
 
