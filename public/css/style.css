@@ -3194,7 +3194,7 @@ footer {
 
 /* TABLETTE - MAIRIE */
 
-@media (min-width: 769px) and (max-width: 1600px) {
+@media (min-width: 769px) and (max-width: 1599px) {
   .flyer-scope .flyer-layout{
     row-gap: 28px;
   }
