@@ -3180,118 +3180,57 @@ footer {
 
 
 
-/* =========================
-   GRAND ÉCRAN (1600px et plus)
-   ========================= */
-@media (min-width: 1600px) {
-  .about-inner {
+/* =========================================
+   ABOUT — RESPONSIVE (fix 1200–1600)
+   Photo AU-DESSUS jusqu’à 1599px
+   Photo à GAUCHE à partir de 1600px
+========================================= */
+
+/* 0 → 1599px : empilé (photo au-dessus, texte dessous) */
+@media (max-width: 1599px) {
+  .about-inner{
     display: flex;
-    flex-direction: row; /* Disposition sur une seule ligne si espace disponible */
-    gap: 32px;  /* Espace entre image et texte */
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
   }
 
-  .about .photo {
-    width: 50%;  /* Image occupe la moitié de l'espace */
-    aspect-ratio: 1 / 1;  /* Maintien l'aspect carré */
-    margin: 0;
-    overflow: hidden;
+  .about .photo{
+    width: min(420px, 70vw);
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
-  .about .photo img {
+  .about .photo img{
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Recadre l'image pour la garder centrée et remplissant son espace */
+    object-fit: cover;
     object-position: center;
   }
 
-  .about-text {
-    max-width: 720px;
-    width: 100%;
-    text-align: justify;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===============================
-   ABOUT — TABLETTE & LAPTOPS
-   Image au-dessus / texte en dessous
-   =============================== */
-@media (max-width: 1599px){
-
-  .about-inner{
-    flex-direction: column;
-    align-items: center;
-    gap: 48px;
-  }
-
-  .about .photo{
-    width: 360px;
-    height: 360px;
-  }
-
-  .about .photo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .about-text{
-    max-width: 900px;
     width: 100%;
+    max-width: 850px;
     text-align: justify;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===============================
-   ABOUT — TABLETTE & PETITS LAPTOPS
-   Photo au-dessus / texte en dessous
-   =============================== */
-@media (max-width: 1599px){
-
+/* 1600px+ : en ligne (photo à gauche, texte à droite) */
+@media (min-width: 1600px) {
   .about-inner{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 48px;
+    gap: 64px;
   }
 
   .about .photo{
-    width: 360px;
-    aspect-ratio: 1 / 1;
-    margin: 0 auto;
-  }
-
-  .about .photo img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 420px;
+    height: 420px;
   }
 
   .about-text{
-    max-width: 900px;
+    max-width: 850px;
     width: 100%;
     text-align: justify;
   }
