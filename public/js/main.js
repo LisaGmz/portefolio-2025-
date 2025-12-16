@@ -602,24 +602,64 @@ if (sideLinks.length) {
 
 
 
-function updatePersonalProjectsVolume() {
-  const videos = document.querySelectorAll('#personal-projects video');
-  const width = window.innerWidth;
+function desiredPPVolume() {
+  const w = window.innerWidth;
+  return (w >= 900 && w <= 1599) ? 0.8 : 0.4;
+}
+
+function applyPPVolume(video) {
+  // Si la vidéo est muted, volume ne sert à rien
+  if (video.muted) return;
+
+  const target = desiredPPVolume();
+
+  // N’écrase pas un réglage manuel si l’utilisateur a déjà touché le volume
+  if (video.dataset.userVolume === "1") return;
+
+  video.volume = target;
+}
+
+function wirePersonalProjectsVideos() {
+  const videos = document.querySelectorAll("#personal-projects video");
 
   videos.forEach(video => {
-    if (width >= 900 && width <= 1599) {
-      video.volume = 0.8; // volume renforcé
-    } else {
-      video.volume = 0.4; // volume normal
-    }
+    // Applique dès que possible
+    applyPPVolume(video);
+
+    // Quand les infos média sont chargées (souvent là que le volume “saute”)
+    video.addEventListener("loadedmetadata", () => applyPPVolume(video));
+
+    // Quand l’utilisateur lance la vidéo
+    video.addEventListener("play", () => applyPPVolume(video));
+
+    // Si l’utilisateur change le volume, on n’écrase plus
+    video.addEventListener("volumechange", () => {
+      // Si la modif vient de nous, pas besoin de bloquer
+      // (heuristique : si volume est déjà la cible, on n’active pas le lock)
+      const target = desiredPPVolume();
+      if (Math.abs(video.volume - target) > 0.02) {
+        video.dataset.userVolume = "1";
+      }
+    });
   });
 }
 
-// Au chargement
-window.addEventListener('load', updatePersonalProjectsVolume);
+// Debounce resize (évite les spam d’événements)
+let ppResizeTimer = null;
+function onPPResize() {
+  clearTimeout(ppResizeTimer);
+  ppResizeTimer = setTimeout(() => {
+    document.querySelectorAll("#personal-projects video").forEach(v => applyPPVolume(v));
+  }, 150);
+}
 
-// Au redimensionnement
-window.addEventListener('resize', updatePersonalProjectsVolume);
+window.addEventListener("load", wirePersonalProjectsVideos);
+window.addEventListener("resize", onPPResize);
+
+// Bonus : au premier clic/tap de l’utilisateur, on réapplique (utile contre les blocages audio)
+window.addEventListener("pointerdown", () => {
+  document.querySelectorAll("#personal-projects video").forEach(v => applyPPVolume(v));
+}, { once: true });
 
 
 
