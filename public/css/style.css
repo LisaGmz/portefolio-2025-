@@ -3192,45 +3192,23 @@ footer {
 
 
 
-/* MAIRIE - 1201 - 1599 */
+/* MAIRIE — 1201 → 1599 : 2 flyers plafonnés + texte dessous */
 @media (min-width: 1201px) and (max-width: 1599px){
+
   .flyer-scope .flyer-layout{
-    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+    grid-template-columns: repeat(2, minmax(320px, 460px)); /* 👈 plafonné */
     grid-auto-rows: auto;
+    column-gap: 32px;
     row-gap: 28px;
+    justify-content: center;
+    max-width: 1040px;
+    margin: 0 auto;
   }
+
   .flyer-scope .flyer-right{
     grid-column: 1 / -1;
   }
 }
-
-
-@media (min-width: 1201px) and (max-width: 1599px){
-
-  
-  .flyer-scope .flyer-layout{
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
- 
-  .flyer-scope .flyer-card{
-    max-width: 520px;      
-    width: 100%;
-    justify-self: center;  
-  }
-
-  /* Et donc l’image ne dépasse jamais */
-  .flyer-scope .flyer-img{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-
-
 
 
 
