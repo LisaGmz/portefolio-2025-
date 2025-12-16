@@ -3192,12 +3192,18 @@ footer {
 
 
 
-/* TABLETTE + LAPTOP - MAIRIE */
-@media (min-width: 769px) and (max-width: 1599px) {
+/* MAIRIE - 1201 - 1599 */
+@media (min-width: 1201px) and (max-width: 1599px){
   .flyer-scope .flyer-layout{
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+    grid-auto-rows: auto;
     row-gap: 28px;
   }
+  .flyer-scope .flyer-right{
+    grid-column: 1 / -1;
+  }
 }
+
 
 
 
