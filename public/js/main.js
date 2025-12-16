@@ -683,4 +683,34 @@ document.querySelectorAll(".video-frame").forEach(frame => {
 
 
 
+
+
+document.querySelectorAll(".video-frame, .video-container").forEach(wrapper => {
+  const video = wrapper.querySelector("video");
+  const btn = wrapper.querySelector(".video-play-btn");
+  if (!video || !btn) return;
+
+  btn.addEventListener("click", () => {
+    video.play();
+    wrapper.classList.add("playing");
+  });
+
+  video.addEventListener("pause", () => {
+    wrapper.classList.remove("playing");
+  });
+
+  video.addEventListener("ended", () => {
+    wrapper.classList.remove("playing");
+  });
+});
+
+
+
+
+
+
+
+
+
+
 });
