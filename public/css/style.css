@@ -3082,7 +3082,8 @@ footer {
 
 /* TABLETTE UNIQUEMENT */
 
-@media (min-width: 769px) and (max-width: 1204px) {
+@media (max-width: 1366px) {
+
 
   /* Layout vertical */
   .about-inner{
