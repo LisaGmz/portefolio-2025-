@@ -455,27 +455,13 @@ document.querySelectorAll('.flyer-scope .flyer-card').forEach(card => {
 
 
 // ===== SIDE NAV : état actif au clic =====
-const sideLinks = document.querySelectorAll(".side-nav-link");
 
-if (sideLinks.length) {
-  sideLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      sideLinks.forEach(l => {
-        l.classList.remove("is-active");
-        l.classList.remove("side-nav-item--primary");
-      });
-
-      link.classList.add("is-active");
-      link.classList.add("side-nav-item--primary");
-    });
-  });
-}
 
 
 
 
 /* =========================
-   SIDE NAV - Scrollspy
+   SIDE NAV - ScrollSpy
    ========================= */
 (() => {
   const navLinks = Array.from(document.querySelectorAll('.side-nav-fixed a.side-nav-link'));
@@ -485,15 +471,10 @@ if (sideLinks.length) {
     const el = document.querySelector(hash);
     if (!el) return null;
 
-    
+    // Si l'ancre est minuscule (ex: <div id="project-1"></div>), observer le bloc suivant
     const r = el.getBoundingClientRect();
-    const isTiny = (r.height < 8);
-    if (isTiny) {
-      const next = el.nextElementSibling;
-      if (next) return next;
-      const parentSection = el.closest('section');
-      if (parentSection) return parentSection;
-    }
+    if (r.height < 8) return el.nextElementSibling || el.closest('section') || el;
+
     return el;
   }
 
@@ -501,20 +482,17 @@ if (sideLinks.length) {
     .map(a => {
       const hash = a.getAttribute('href')?.trim();
       if (!hash || !hash.startsWith('#')) return null;
-
       const observed = resolveObservedElement(hash);
-      return observed ? { link: a, hash, observed } : null;
+      return observed ? { hash, observed } : null;
     })
     .filter(Boolean);
 
-  if (!targets.length) return;
-
   const setActive = (hash) => {
     navLinks.forEach(a => {
-      const isActive = a.getAttribute('href') === hash;
-      a.classList.toggle('is-active', isActive);
-      a.classList.toggle('side-nav-item--primary', isActive);
-      if (isActive) a.setAttribute('aria-current', 'page');
+      const active = a.getAttribute('href') === hash;
+      a.classList.toggle('is-active', active);
+      a.classList.toggle('side-nav-item--primary', active);
+      if (active) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
   };
@@ -530,23 +508,20 @@ if (sideLinks.length) {
     });
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      if (!visible) return;
+    if (!visible) return;
 
-      const match = targets.find(t => t.observed === visible.target);
-      if (match) setActive(match.hash);
-    },
-    {
-      root: null,
-      threshold: [0.2, 0.35, 0.5, 0.65],
-      rootMargin: '-30% 0px -55% 0px',
-    }
-  );
+    const match = targets.find(t => t.observed === visible.target);
+    if (match) setActive(match.hash);
+  }, {
+    threshold: [0.2, 0.35, 0.5, 0.65],
+    rootMargin: '-30% 0px -55% 0px',
+  });
 
   targets.forEach(t => observer.observe(t.observed));
 })();
