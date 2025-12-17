@@ -673,6 +673,33 @@ window.addEventListener("pointerdown", () => {
 
 
 
+document.querySelectorAll('#personal-projects video').forEach(video => {
+  const frame = video.closest('.video-frame');
+  if (!frame) return;
+
+  video.addEventListener('play', () => {
+    frame.classList.add('is-playing');
+  });
+
+  video.addEventListener('pause', () => {
+    frame.classList.remove('is-playing');
+  });
+
+  video.addEventListener('ended', () => {
+    frame.classList.remove('is-playing');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
