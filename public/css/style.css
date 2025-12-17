@@ -3415,14 +3415,14 @@ footer {
     background 0.25s ease;
 }
 
-/* Hover */
+
 .btn-more:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.28);
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-/* Petite flèche */
+
 .btn-more::after {
   content: "→";
   font-size: 0.9rem;
@@ -3465,7 +3465,7 @@ footer {
   z-index: 3;
 }
 
-/* Souris */
+
 .hero .scroll-indicator .mouse{
   width: 26px;
   height: 42px;
@@ -3474,7 +3474,7 @@ footer {
   position: relative;
 }
 
-/* Roulette */
+
 .hero .scroll-indicator .wheel{
   position: absolute;
   top: 8px;
