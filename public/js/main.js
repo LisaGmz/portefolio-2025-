@@ -661,60 +661,98 @@ document.querySelectorAll('#personal-projects video').forEach(video => {
 
 
 
-/* ==================================================
-   SIDE NAV - SCROLLSPY
-   ================================================== */
-(function () {
-  const links = Array.from(document.querySelectorAll('.side-nav-link'));
+/* =========================
+   SIDE NAV — ScrollSpy
+   ========================= */
+(() => {
+  const links = Array.from(document.querySelectorAll('.side-nav-fixed a.side-nav-link'));
   if (!links.length) return;
 
-  const sections = [
-    { id: '#about',            el: document.querySelector('#about') },
-    { id: '#project-1',        el: document.querySelectorAll('.projects-shell')[0] },
-    { id: '#project-2',        el: document.querySelectorAll('.projects-shell')[1] },
-    { id: '#personal-projects',el: document.querySelector('#personal-projects') }
-  ].filter(s => s.el);
-
-  const setActive = (id) => {
-    links.forEach(l => {
-      const active = l.getAttribute('href') === id;
-      l.classList.toggle('is-active', active);
-      l.classList.toggle('side-nav-item--primary', active);
+  const clearActive = () => {
+    links.forEach(a => {
+      a.classList.remove('is-active', 'side-nav-item--primary');
+      a.removeAttribute('aria-current');
     });
   };
 
-
-  setActive('#about');
+  const setActive = (hash) => {
+    clearActive();
+    if (!hash) return; 
+    links.forEach(a => {
+      if (a.getAttribute('href') === hash) {
+        a.classList.add('is-active', 'side-nav-item--primary');
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+  };
 
   
-  links.forEach(l => {
-    l.addEventListener('click', () => {
-      setActive(l.getAttribute('href'));
+  links.forEach(a => {
+    a.addEventListener('click', () => {
+      const hash = a.getAttribute('href');
+      if (hash && hash.startsWith('#')) setActive(hash);
     });
   });
 
   
-  const OFFSET = 180;
-
-  const onScroll = () => {
-    const y = window.scrollY + OFFSET;
-
-    let current = sections[0].id;
-
-    for (let i = 0; i < sections.length; i++) {
-      const top = sections[i].el.offsetTop;
-      if (y >= top) current = sections[i].id;
-    }
-
-    setActive(current);
+  const getMarker = (hash) => {
+    const el = document.querySelector(hash);
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    return (r.height < 8) ? (el.nextElementSibling || el) : el;
   };
 
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
+  const items = links.map(a => {
+    const hash = a.getAttribute('href');
+    if (!hash || !hash.startsWith('#')) return null;
+    const marker = getMarker(hash);
+    return marker ? { hash, marker } : null;
+  }).filter(Boolean);
 
  
+  let tops = [];
+  const compute = () => {
+    tops = items
+      .map(it => ({ hash: it.hash, top: window.scrollY + it.marker.getBoundingClientRect().top }))
+      .sort((x, y) => x.top - y.top);
+  };
 
+  const OFFSET = 180; 
+ 
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY + OFFSET;
+
+     
+      const about = tops.find(t => t.hash === '#about');
+      if (about && y < about.top) {
+        setActive(null);
+        ticking = false;
+        return;
+      }
+
+      let current = null;
+      for (const t of tops) {
+        if (y >= t.top) current = t.hash;
+        else break;
+      }
+      setActive(current);
+      ticking = false;
+    });
+  };
+
+
+  compute();
+  clearActive();     
+  onScroll();
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { compute(); onScroll(); }, { passive: true });
+  window.addEventListener('load',   () => { compute(); onScroll(); }, { passive: true });
+})();
 
 
 
