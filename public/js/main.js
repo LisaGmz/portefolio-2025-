@@ -444,97 +444,6 @@ document.querySelectorAll('.flyer-scope .flyer-card').forEach(card => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-// ===== SIDE NAV : état actif au clic =====
-
-
-
-
-
-/* =========================
-   SIDE NAV - ScrollSpy
-   ========================= */
-(() => {
-  const navLinks = Array.from(document.querySelectorAll('.side-nav-fixed a.side-nav-link'));
-  if (!navLinks.length) return;
-
-  function resolveObservedElement(hash) {
-    const el = document.querySelector(hash);
-    if (!el) return null;
-
-    // Si l'ancre est minuscule (ex: <div id="project-1"></div>), observer le bloc suivant
-    const r = el.getBoundingClientRect();
-    if (r.height < 8) return el.nextElementSibling || el.closest('section') || el;
-
-    return el;
-  }
-
-  const targets = navLinks
-    .map(a => {
-      const hash = a.getAttribute('href')?.trim();
-      if (!hash || !hash.startsWith('#')) return null;
-      const observed = resolveObservedElement(hash);
-      return observed ? { hash, observed } : null;
-    })
-    .filter(Boolean);
-
-  const setActive = (hash) => {
-    navLinks.forEach(a => {
-      const active = a.getAttribute('href') === hash;
-      a.classList.toggle('is-active', active);
-      a.classList.toggle('side-nav-item--primary', active);
-      if (active) a.setAttribute('aria-current', 'page');
-      else a.removeAttribute('aria-current');
-    });
-  };
-
- 
-  setActive('#about');
-
- 
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      const hash = a.getAttribute('href');
-      if (hash?.startsWith('#')) setActive(hash);
-    });
-  });
-
-  
-  const observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-    if (!visible) return;
-
-    const match = targets.find(t => t.observed === visible.target);
-    if (match) setActive(match.hash);
-  }, {
-    threshold: [0.2, 0.35, 0.5, 0.65],
-    rootMargin: '-30% 0px -55% 0px',
-  });
-
-  targets.forEach(t => observer.observe(t.observed));
-})();
-
-
-
-
-
-
-
-
-
-
     // ===== VIDÉOS PROJETS PERSO=====
 (function () {
   const videos = document.querySelectorAll(".auto-hide-controls");
@@ -752,6 +661,57 @@ document.querySelectorAll('#personal-projects video').forEach(video => {
 
 
 
+/* ==================================================
+   SIDE NAV - SCROLLSPY
+   ================================================== */
+(function () {
+  const links = Array.from(document.querySelectorAll('.side-nav-link'));
+  if (!links.length) return;
+
+  const sections = [
+    { id: '#about',            el: document.querySelector('#about') },
+    { id: '#project-1',        el: document.querySelectorAll('.projects-shell')[0] },
+    { id: '#project-2',        el: document.querySelectorAll('.projects-shell')[1] },
+    { id: '#personal-projects',el: document.querySelector('#personal-projects') }
+  ].filter(s => s.el);
+
+  const setActive = (id) => {
+    links.forEach(l => {
+      const active = l.getAttribute('href') === id;
+      l.classList.toggle('is-active', active);
+      l.classList.toggle('side-nav-item--primary', active);
+    });
+  };
+
+
+  setActive('#about');
+
+  
+  links.forEach(l => {
+    l.addEventListener('click', () => {
+      setActive(l.getAttribute('href'));
+    });
+  });
+
+  
+  const OFFSET = 180;
+
+  const onScroll = () => {
+    const y = window.scrollY + OFFSET;
+
+    let current = sections[0].id;
+
+    for (let i = 0; i < sections.length; i++) {
+      const top = sections[i].el.offsetTop;
+      if (y >= top) current = sections[i].id;
+    }
+
+    setActive(current);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 
  
 
