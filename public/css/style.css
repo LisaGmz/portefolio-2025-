@@ -3448,7 +3448,7 @@ footer {
 
 
 /* ===== INDICATEUR SCROLL — HERO ===== */
-.scroll-indicator{
+.hero .scroll-indicator{
   margin-top: 26px;
   display: inline-flex;
   flex-direction: column;
@@ -3464,19 +3464,18 @@ footer {
   opacity: 0.85;
   transition: opacity .25s ease, transform .25s ease;
 }
-.scroll-indicator:hover{
+.hero .scroll-indicator:hover{
   opacity: 1;
   transform: translateY(2px);
 }
-
-.scroll-indicator .mouse{
+.hero .scroll-indicator .mouse{
   width: 26px;
   height: 42px;
   border: 2px solid rgba(255,255,255,0.75);
   border-radius: 16px;
   position: relative;
 }
-.scroll-indicator .wheel{
+.hero .scroll-indicator .wheel{
   position: absolute;
   top: 8px;
   left: 50%;
@@ -3492,5 +3491,4 @@ footer {
   30%{ opacity: 1; }
   100%{ opacity: 0; transform: translate(-50%, 12px); }
 }
-
-.scroll-text{ font-size: 0.7rem; }
+.hero .scroll-text{ font-size: 0.7rem; }
