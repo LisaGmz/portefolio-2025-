@@ -2904,6 +2904,13 @@ footer {
 
 
 
+.side-nav-link.is-active .side-nav-label,
+.side-nav-item--primary .side-nav-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: none;
+}
+
 
 
 
