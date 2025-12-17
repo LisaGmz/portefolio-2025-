@@ -3328,7 +3328,7 @@ footer {
 
 
 
-/* ===== INDICATEUR PLAY – PROJETS PERSO ===== */
+/* ===== PLAY - PROJETS PERSO ===== */
 #personal-projects .video-frame {
   position: relative;
 }
@@ -3347,12 +3347,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* important */
+  pointer-events: none;
   opacity: 0.85;
+  transition: opacity 0.25s ease;
 }
 
-/* Disparaît pendant la lecture */
-#personal-projects video:not(:paused) + *,
-#personal-projects video:not(:paused) {
-  /* rien ici, juste pour compat */
+
+#personal-projects .video-frame.is-playing::after {
+  opacity: 0;
 }
+
