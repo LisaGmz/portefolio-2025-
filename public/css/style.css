@@ -3432,3 +3432,65 @@ footer {
 .btn-more:hover::after {
   transform: translateX(4px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== INDICATEUR SCROLL — HERO ===== */
+.scroll-indicator{
+  margin-top: 26px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  opacity: 0.85;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.scroll-indicator:hover{
+  opacity: 1;
+  transform: translateY(2px);
+}
+
+.scroll-indicator .mouse{
+  width: 26px;
+  height: 42px;
+  border: 2px solid rgba(255,255,255,0.75);
+  border-radius: 16px;
+  position: relative;
+}
+.scroll-indicator .wheel{
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 2px;
+  animation: scroll-wheel 1.6s infinite;
+}
+@keyframes scroll-wheel{
+  0%{ opacity: 0; transform: translate(-50%, 0); }
+  30%{ opacity: 1; }
+  100%{ opacity: 0; transform: translate(-50%, 12px); }
+}
+
+.scroll-text{ font-size: 0.7rem; }
