@@ -3372,8 +3372,15 @@ footer {
 
 .side-nav-link.is-active {
   opacity: 1;
+  transform: translateX(0);
 }
 
-.side-nav-item.is-active {
+
+.side-nav-item--primary {
   transform: translateX(0);
+  }
+
+
+  .projects-shell .section-heading {
+  margin-bottom: 36px;
 }
