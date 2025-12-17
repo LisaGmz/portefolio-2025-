@@ -474,6 +474,54 @@ if (sideLinks.length) {
 
 
 
+/* =========================================
+   SIDE NAV - ScrollSpy
+   ========================================= */
+(() => {
+  const links = Array.from(document.querySelectorAll('.side-nav-link'));
+  if (!links.length) return;
+
+  // Associe chaque lien à sa section
+  const sections = links
+    .map(link => {
+      const id = link.getAttribute('href');
+      if (!id || !id.startsWith('#')) return null;
+      const section = document.querySelector(id);
+      return section ? { link, section, id } : null;
+    })
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    links.forEach(l => {
+      const active = l.getAttribute('href') === id;
+      l.classList.toggle('is-active', active);
+      l.classList.toggle('side-nav-item--primary', active);
+    });
+  };
+
+  // Par défaut : À PROPOS actif
+  setActive('#about');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+      setActive('#' + visible.target.id);
+    },
+    {
+      root: null,
+      threshold: [0.25, 0.4, 0.6],
+      rootMargin: '-35% 0px -50% 0px'
+    }
+  );
+
+  sections.forEach(s => observer.observe(s.section));
+})();
 
 
 
@@ -700,70 +748,9 @@ document.querySelectorAll('#personal-projects video').forEach(video => {
 
 
 
-/* =========================
-   SIDE NAV - Scrollspy
-   ========================= */
-(() => {
-  const navLinks = Array.from(document.querySelectorAll('.side-nav-fixed a.side-nav-link'));
-  if (!navLinks.length) return;
+
 
  
-  const targets = navLinks
-    .map(a => {
-      const id = a.getAttribute('href')?.trim();
-      if (!id || !id.startsWith('#')) return null;
-      const el = document.querySelector(id);
-      return el ? { link: a, id, el } : null;
-    })
-    .filter(Boolean);
-
-  if (!targets.length) return;
-
-  const setActive = (hash) => {
-    navLinks.forEach(a => {
-      const isActive = a.getAttribute('href') === hash;
-
-      a.classList.toggle('is-active', isActive);
-    
-      a.closest('.side-nav-item')?.classList.toggle('is-active', isActive);
-
-      if (isActive) a.setAttribute('aria-current', 'page');
-      else a.removeAttribute('aria-current');
-    });
-  };
-
- 
-  setActive('#about');
-
- 
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      const hash = a.getAttribute('href');
-      if (hash?.startsWith('#')) setActive(hash);
-    });
-  });
-
- 
-  const observer = new IntersectionObserver(
-    (entries) => {
-    
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visible) return;
-      setActive('#' + visible.target.id);
-    },
-    {
-     
-      root: null,
-      threshold: [0.2, 0.35, 0.5, 0.65],
-      rootMargin: '-30% 0px -55% 0px',
-    }
-  );
-
-  targets.forEach(t => observer.observe(t.el));
-})();
 
 
 
