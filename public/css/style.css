@@ -3357,3 +3357,16 @@ footer {
   opacity: 0;
 }
 
+
+
+
+
+
+
+.side-nav-link.is-active {
+  opacity: 1;
+}
+
+.side-nav-item.is-active {
+  transform: translateX(0);
+}
