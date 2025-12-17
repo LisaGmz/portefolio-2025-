@@ -474,35 +474,61 @@ if (sideLinks.length) {
 
 
 
-/* =========================================
-   SIDE NAV - ScrollSpy
-   ========================================= */
+/* =========================
+   SIDE NAV - Scrollspy
+   ========================= */
 (() => {
-  const links = Array.from(document.querySelectorAll('.side-nav-link'));
-  if (!links.length) return;
+  const navLinks = Array.from(document.querySelectorAll('.side-nav-fixed a.side-nav-link'));
+  if (!navLinks.length) return;
 
-  // Associe chaque lien à sa section
-  const sections = links
-    .map(link => {
-      const id = link.getAttribute('href');
-      if (!id || !id.startsWith('#')) return null;
-      const section = document.querySelector(id);
-      return section ? { link, section, id } : null;
+  function resolveObservedElement(hash) {
+    const el = document.querySelector(hash);
+    if (!el) return null;
+
+    
+    const r = el.getBoundingClientRect();
+    const isTiny = (r.height < 8);
+    if (isTiny) {
+      const next = el.nextElementSibling;
+      if (next) return next;
+      const parentSection = el.closest('section');
+      if (parentSection) return parentSection;
+    }
+    return el;
+  }
+
+  const targets = navLinks
+    .map(a => {
+      const hash = a.getAttribute('href')?.trim();
+      if (!hash || !hash.startsWith('#')) return null;
+
+      const observed = resolveObservedElement(hash);
+      return observed ? { link: a, hash, observed } : null;
     })
     .filter(Boolean);
 
-  if (!sections.length) return;
+  if (!targets.length) return;
 
-  const setActive = (id) => {
-    links.forEach(l => {
-      const active = l.getAttribute('href') === id;
-      l.classList.toggle('is-active', active);
-      l.classList.toggle('side-nav-item--primary', active);
+  const setActive = (hash) => {
+    navLinks.forEach(a => {
+      const isActive = a.getAttribute('href') === hash;
+      a.classList.toggle('is-active', isActive);
+      a.classList.toggle('side-nav-item--primary', isActive);
+      if (isActive) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
     });
   };
 
-  // Par défaut : À PROPOS actif
+ 
   setActive('#about');
+
+ 
+  navLinks.forEach(a => {
+    a.addEventListener('click', () => {
+      const hash = a.getAttribute('href');
+      if (hash?.startsWith('#')) setActive(hash);
+    });
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -511,16 +537,18 @@ if (sideLinks.length) {
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
       if (!visible) return;
-      setActive('#' + visible.target.id);
+
+      const match = targets.find(t => t.observed === visible.target);
+      if (match) setActive(match.hash);
     },
     {
       root: null,
-      threshold: [0.25, 0.4, 0.6],
-      rootMargin: '-35% 0px -50% 0px'
+      threshold: [0.2, 0.35, 0.5, 0.65],
+      rootMargin: '-30% 0px -55% 0px',
     }
   );
 
-  sections.forEach(s => observer.observe(s.section));
+  targets.forEach(t => observer.observe(t.observed));
 })();
 
 
